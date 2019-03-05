@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<style>
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: red;
+}
+div {
+  height: 300px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+h1 {
+  font-family: 'pacifico', cursive;
+  text-align: center;
+  font-size: 75px;
+  color: blue;
+  margin: 60px 0 0 0;
+}
+ul {
+  text-align: center;
+    padding: 10px;
+    background: rgba(,0,0,10);
+}
+li {
+    display: inline;
+    padding: 0px 10px 0px 10px;
+    color: grey;
+    }
+h2 {
+  font-family: 'pacifico', cursive;
+  text-align: center;
+  color: yellow;
+  margin: 0px 0 70px 0;
+}
+p {
+  font-family: 'pacifico', cursive;
+  color: rgba(2,255,55,9);
+  background: yellow;
+  background: linear-gradient(bottom, rgba(255,0,0,1), rgba(200,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(0,0,55,1), rgba(0,34,255,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,56,0,1), rgba(100,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+small {
+  opacity: 0;
+}
+.show-description p {
+  height: 150px;
+  font-family: 'Pacifico', cursive;
+}
+.show-description small {
+  opacity: 1;
+}
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+<ul>
+      <li><button onclick=Appetizers()>Appetizers</button></li>
+      <li><button onclick=Entrees()>Entrees</button></li>
+      <li><button onclick=Desserts()>Desserts</button></li>
+    </ul>
+<h1>Big Boy Restaurant</h1>
+<h2>"Know What You Want!"</h2>
+<div id="food">
+</div>
+
+
+<script>
+
+AppetizersImages = [
+          'url("https://keyingredient.blob.core.windows.net/recipe/JpaiZICTmtZ1X7CgM-qfjzUp4nC7W7rnzgJaws6yRKDHt5r8x2pWN_3ZdrxFtZxTjJul-65F1MtU8XGLtMsQmOvPEak")',
+          'url("https://tipbuzz.com/wp-content/uploads/Ritz-Cracker-Appetizers-1.jpg")',
+          'url("https://www.readyseteat.com/sites/g/files/qyyrlu501/files/images/articles/Main-Marquee_HolidayApps-01.jpg")',
+          
+]
+EntreesImages = [
+        'url("https://ohsheglows.com/wp-content/uploads/2011/12/IMG_20611.jpg")',
+        'url("https://www.mrsdash.com/sites/default/files/entree-hot.jpg")',
+        'url("https://www.bellapizzava.com/images/header-pasta.jpg")',
+]
+DessertsImages = [
+      'url("https://images-gmi-pmc.edge-generalmills.com/c2462c96-4a12-484b-ad78-4bbc2ce6505f.jpg")',
+      'url("https://images.food52.com/i4wyR08nCYAHZr_Eq8nFTl1R0r4=/753x502/baf2e8ce-4136-4681-a8b0-259a1bc1d17d--IMG_7818f.jpg")',
+      'url("https://44uc8dkwa8q3f5b66w13vilg-wpengine.netdna-ssl.com/wp-content/uploads/2018/12/75-Keto-Desserts_LowCarb-Keto-Cupcakes-752x289.jpg")',
+]
+
+AppetizersDivs = [
+  '<div class="item"onclick=this.classList.toggle("show-description")><p> Appetizer Plater <span class="price">$5.04</span><br /><small> Mixed of everything e=we have in the hosue </small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>Shrimp-Guacamole-crakers<span class="price">  $8.20</span><br /><small>imported from the coast of italy.Recommed by the house </small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>Macaroni-Bacon stuff <span class="price">10.70</span><br /><small>Some man called joshua makes it at his house good luck.</small></p></div>',
+]
+EntreesDivs = [
+  '<div class="item" onclick=this.classList.toggle("show-description")><p> Pasta <span class="price">$10.04</span><br /><small>this pasta come from the east coast of mexico, imported by highly class </small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>Steak<span class="price">$30.20</span><br /><small>This product is made ans sponsered by dash. Best food on earth</small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>lasagna<span class="price">$25.60</span><br /><small>Used tomatoes from brazil.</small></p></div>',
+]
+DessertsDivs = [
+  '<div class="item" onclick=this.classList.toggle("show-description")><p> Brownie with caramel <span class="price">$10.04</span><br /><small>this pasta come from the east coast of mexico, imported by highly class </small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>Vanila and rasberry<span class="price">$20.2</span><br /><small>Fromt he backstreets of bangladesh</small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>choccolate and vanila cupcake<span class="price">$420.69</span><br /><small>Some man called joshua makes it at his house good luck.</small></p></div>',
+]
+function Appetizers() {
+	//alert("Clicked Appatizers")
+	cook = document.getElementById("food")
+	cook.innerHTML = ''
+	cook.innerHTML += AppetizersDivs[0]
+	cook.innerHTML += AppetizersDivs[1]
+	cook.innerHTML += AppetizersDivs[2]
+	
+
+items = document.getElementsByClassName("item")
+    items[0].style.background = AppetizersImages[0]
+    items[0].style.backgroundSize = '100% 100%'
+    items[1].style.background = AppetizersImages[1]
+    items[1].style.backgroundSize = '100% 100%'
+    items[2].style.background = AppetizersImages[2]
+    items[2].style.backgroundSize = '100% 100%'
+} 
+
+function Entrees() {
+	//alert("Clicked Entrees")
+	
+	cook = document.getElementById("food")
+	cook.innerHTML = ''
+	cook.innerHTML += EntreesDivs[0]
+	cook.innerHTML += EntreesDivs[1]
+	cook.innerHTML += EntreesDivs[2]
+	
+items = document.getElementsByClassName("item")
+    items[0].style.background = EntreesImages[0]
+    items[0].style.backgroundSize = '100% 100%'
+    items[1].style.background = EntreesImages[1]
+    items[1].style.backgroundSize = '100% 100%'
+    items[2].style.background = EntreesImages[2]
+    items[2].style.backgroundSize = '100% 100%'
+
+} 
+function Desserts() {
+	//alert("Clicked Desserts")
+	
+	cook = document.getElementById("food")
+	cook.innerHTML = ''
+	cook.innerHTML += DessertsDivs[0]
+	cook.innerHTML += DessertsDivs[1]
+	cook.innerHTML += DessertsDivs[2]
+	
+	items = document.getElementsByClassName("item")
+    items[0].style.background = DessertsImages[0]
+    items[0].style.backgroundSize = '100% 100%'
+    items[1].style.background = DessertsImages[1]
+    items[1].style.backgroundSize = '100% 100%'
+    items[2].style.background = DessertsImages[2]
+    //items[2].style.backgroundSize = '100% 100%'
+} 
+
+
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
+
+</body>
