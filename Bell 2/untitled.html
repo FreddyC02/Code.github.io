@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/assets/jquery.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+<style>
+body {
+  font-family:Fredericka the Great, Regular ;
+  margin: 0 auto;
+  max-width: 600px;
+  background: pink;
+}
+div {
+  height: 350px;
+  background-size: cover;
+  position: relative;
+  margin: 60px 0 0 0;
+  border-radius: 20px;
+}
+h1 {
+  font-family: indie flower, cursive;
+  text-align: center;
+  font-size: 95px;
+  color: purple;
+  margin: 80px 0 0 0;
+}
+h2 {
+  text-align: center;
+  color: purple;
+  margin: 0px 0 70px 0;
+}
+p {
+  color: rgba(205,235,222,1);
+  background: purple;
+  background: linear-gradient(bottom, rgba(0,1,6,1), rgba(0,1,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(0,1,4,1), rgba(0,9,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,1,0,1), rgba(2,1,0,.4));
+  padding: 10px;
+  line-height: 40px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .10s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+small {
+  opacity: 0;
+}
+.show-description p {
+  height: 200px;
+}
+.show-description small {
+  opacity: 1;
+}
+.first{
+  background-image: url("https://tucsonfoodie.com/wp-content/uploads/2017/10/TF-feast-seared-sea-scallops-0974-620x400.jpg");
+}
+.second{
+  background-image: url("https://static.wixstatic.com/media/d28464_1817fb2a29cd4842b852545e71b5dca4~mv2_d_2400_1606_s_2.jpg");
+}
+.dessert{
+  background-image: url("https://i1.wp.com/moneysmylife.com/wp-content/uploads/2016/03/Dessert.jpg?ssl=1");
+}
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 55px;
+    margin-top: 40px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 30px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 40px;
+    line-height: 34px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+ ul {
+      padding: 5px;
+      background-color:lavender;
+      text-align: center
+    }
+    li {
+      display: inline;
+      padding: 0px 10px 0px 10px;
+    }
+    article {
+      max-width: 10000px;
+      padding: 20px;
+      margin: 0 auto;
+      background-color:aqua;
+      font-family:'Nanum Brush Script';
+      font-size:30px
+    }
+</style>
+
+</head>
+
+<body>
+
+ <ul>
+	  <li><button onclick=Breakfast()> Rise and Shine</button></li>
+      <li><button onclick=Lunches()> Lunches</button></li>
+      <li><button onclick=Dinners()> Amazing Dinners</button></li>
+      <li><button onclick=Desserts()> Decadent Desserts</button></li>
+	  
+	  
+    </ul>
+
+<h1>Like No Udder</h1>
+<h2>The Taste Of Real Food</h2>
+
+<div id="Foodies"></div>
+
+<script>
+ BreakfastImages = [
+'url("https://olo-images-live.imgix.net/9c/9cf9aba367a4491d89f5ddcc227a9879.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=500&h=333&fit=fill&fm=png32&bg=transparent&s=39190b5a3d1b6faeb656e6d97d68ff95")',
+'url("https://cdn-image.myrecipes.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/recipes/ck/13/06/breakfast-quinoa-ck-x.jpg?itok=TOCzsZka")',
+'url("https://d1doqjmisr497k.cloudfront.net/-/media/mccormick-us/recipes/mccormick/q/2000/quick-and-easy-french-toast-2000x1125.ashx?vd=20181119T193106Z&hash=5B5D288CDC390A69D7555EA864BB54EEFF4F578D")',
+]
+
+ LunchesImages = [
+'url("https://s-media-cache-ak0.pinimg.com/originals/cd/82/ab/cd82aba65a4227b82553b62240847584.jpg")',
+'url("https://assets3.thrillist.com/v1/image/2704349/size/gn-gift_guide_variable_c.jpg")',
+'url("https://texasstation.sclv.com/~/media/Images/Page-Background-Images/Palace/Dining/PS_Dining_Grandcafe2.jpg?h=630&la=en&w=1080")',
+'url("https://cdn2.stylecraze.com/wp-content/uploads/2014/08/69-Quick-Low-Calorie-Lunches-That-Are-Yummy-To-Eat-1.jpg")',
+]
+
+DinnerImages = [
+'url("https://static01.nyt.com/images/2017/08/09/dining/09COOKING-PADTHAI5/09COOKING-PADTHAI5-articleLarge.jpg")',
+'url("https://static.onecms.io/wp-content/uploads/sites/37/2015/06/15231847/RU304305.jpg.rendition.largest.jpg")',
+'url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dinner-ideas-ground-beef-nachos-1544454702.png?crop=1.00xw:0.828xh;0,0.0829xh&resize=480:*")',
+]
+
+DessertImages = [
+'url("https://userscontent2.emaze.com/images/598c771f-171e-41d0-9ff3-f3f723781b6c/dd34ccceeb9b0e5c2694f83ad5ec859d.jpg")',
+'url("https://cdn.thewhoot.com/wp-content/uploads/2018/01/Baileys-Dessert-Recipes-East-Ideas-Parfaits.jpg")',
+'url("https://thumbor.thedailymeal.com/nPbucKazg9fWjVhEaz0d6hilLgk=/840x565/https://www.thedailymeal.com/sites/default/files/slides/12-macarons-shutterstock_334532153.jpg")',
+'url("https://cdn.shopify.com/s/files/1/1159/9032/products/shutterstock_231401329.jpg?v=1467974525")',
+'url("https://cheddars.com/wp-content/themes/csk/images/menu-hot-fudge-chocolate-cake.jpg")',
+  ]
+
+
+BreakfastDivs = [
+'<div class="item" onclick=this.classList.toggle("show-description")><p> Filler Up <span class="price">$11.99</span><br /><small> Eating and being able to pay less it the way to go. come try out our Family Sized breakfast that wil have you stuffed and begging to take home. With toast, sasuages, hash, and eggs sunny side up.</small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p> Oatmeal to Go <span class="price">$12.99</span><br /><small> There is noting better then having a bowl of hardy oatmeal with fresh fruit and grains. A fill up that we have you energized and ready to go out the door.</small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>Frenchyy Toast <span class="price">$4.99</span><br /><small>Who can go wrong with sweet french toast. It is a deleious and one of the sweetest breakfast fods youll ever have for breakfast. Toped with fresh  berries and fruit that will have you wake up bright and early to have.</small></p></div>',
+]
+  
+LunchesDivs = [
+'<div class="item" onclick=this.classList.toggle("show-description")><p> All Time Platter <span class="price">14.99</span><br /><small> With all kinds of meats and cheese to choose from and all with great taste. Pick a wide varities from cold to hot cuts along with bread, crackers, or even wraps </small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p> All In One Pot <span class="price">$12.99</span><br /><small> There is noting better then having a home cooked meal in a pot to make you feel at home. our signiture pot roast is the most selected item on our menu with outstanding beauty of veggies an meats. A grand prize to eat.</small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>Papas Burger and Fries <span class="price">$4.99</span><br /><small>Nothing can beat the mouth watering burger that is filled with so many flavors and many ways to style. This all time burger is a classic with cruncky and savery fries it is soemthing you dont want to miss.</small></p></div>',
+]
+DinnerDivs = [
+   '<div class="item" onclick=this.classList.toggle("show-description")><p> Festive Tacos <span class="price">$5.99</span><br /><small> Hard-shell tacos. ... Such tacos are crisp-fried corn tortillas filled with seasoned ground beef, cheese, lettuce, and sometimes tomato, onion, salsa, sour cream, and avocado or guacamole..  </small></p></div>',
+    '<div class="item" onclick=this.classList.toggle("show-description")><p>Stuffy Peppers <span class="price">$3.99</span><br /><small>American cuisine is a dish where bell peppers (often the green, yellow, and red varieties) are typically filled with a stuffing such as ground beef, mixed with bread crumbs or cooked rice, eggs, herbs, and spices.</small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Fajita Bowl <span class="price">$3.99</span><br /><small>Tex-Mex cuisine is any grilled meat that is served as a taco on a flour or corn tortilla. The term originally referred to skirt steak, the cut of beef first used in the dish. Arrachera is a northern Mexican variant of the dish..</small></p></div>',
+]
+DessertDivs = [
+'<div class="item" onclick=this.classList.toggle("show-description")><p> Puff Squares <span class="price">$9.99</span><br /><small> a light, flaky, rich pastry made by rolling dough with butter and folding it to form layers: used for tarts, napoleons, etc. British Dictionary definitions for puff pastry.  </small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>Chocolate World Cup <span class="price">$14.99</span><br /><small>Layered chocolate and Baileys cream paired with crumbled Oreo cookies. This delicious Baileys parfait is the perfect weekend retreat!.</small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p> Crazy MACCO<span class="price">$3.99</span><br /><small>The difference between the two is the way the meringue is made. ... Either Italian or French meringue can be combined with ground almonds. A macaron is made by combining icing sugar and ground almonds into a fine mixture. In a separate bowl, egg whites are beaten to a meringue-like consistency.</small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>',
+]
+
+
+function Breakfast() {
+    Food = document.getElementById("Foodies")
+    Food.innerHTML = ""
+	Food.innerHTML += BreakfastDivs[0]
+    Food.innerHTML += BreakfastDivs[1]
+    Food.innerHTML += BreakfastDivs[2]
+   //alert("Need energy?!")
+    items = document.getElementsByClassName("item")
+    items[0].style.background = BreakfastImages[0]
+    items[1].style.background = BreakfastImages[1]
+    items[2].style.background = BreakfastImages[2]
+    items[0].style.backgroundSize = '100% 100%'
+    items[1].style.backgroundSize = '100% 100%'
+    items[2].style.backgroundSize = '100% 100%'
+} 
+function Lunches() {
+    Food = document.getElementById("Foodies")
+    Food.innerHTML = ""
+	Food.innerHTML += LunchesDivs[0]
+    Food.innerHTML += LunchesDivs[1]
+    Food.innerHTML += LunchesDivs[2]
+	Food.innerHTML += LunchesDivs[3]
+   //alert("Came fo a tasty meal?!")
+    items = document.getElementsByClassName("item")
+    items[0].style.background = LunchesImages[0]
+    items[1].style.background = LunchesImages[1]
+    items[2].style.background = LunchesImages[2]
+	items[3].style.background = LunchesImages[3]
+    items[0].style.backgroundSize = '100% 100%'
+    items[1].style.backgroundSize = '100% 100%'
+    items[2].style.backgroundSize = '100% 100%'
+	items[3].style.backgroundSize = '100% 100%'
+}  
+function Dinners() {
+    Food = document.getElementById("Foodies")
+    Food.innerHTML = ""
+	Food.innerHTML += DinnerDivs[0]
+    Food.innerHTML += DinnerDivs[1]
+    Food.innerHTML += DinnerDivs[2]
+    //alert("Ready To Eat?")
+    items = document.getElementsByClassName("item")
+    items[0].style.background = DinnerImages[0]
+    items[1].style.background = DinnerImages[1]
+    items[2].style.background = DinnerImages[2]
+    items[0].style.backgroundSize = '100% 100%'
+    items[1].style.backgroundSize = '100% 100%'
+    items[2].style.backgroundSize = '100% 100%'
+}
+function Desserts() {
+    Food = document.getElementById("Foodies")
+    Food.innerHTML = ""
+  	Food.innerHTML += DessertDivs[0]
+    Food.innerHTML += DessertDivs[1]
+    Food.innerHTML += DessertDivs[2]
+	Food.innerHTML += DessertDivs[3]
+	Food.innerHTML += DessertDivs[4]
+	//alert("Yummy in my Tummy!!")
+    items = document.getElementsByClassName("item")
+    items[0].style.background = DessertImages[0]
+    items[1].style.background = DessertImages[1]
+    items[2].style.background = DessertImages[2]
+	items[3].style.background = DessertImages[3]
+	items[4].style.background = DessertImages[4]
+	items[0].style.backgroundSize = '100% 100%'
+	items[1].style.backgroundSize = '100% 100%'
+    items[2].style.backgroundSize = '100% 100%'
+	items[3].style.backgroundSize = '100% 100%'
+	items[4].style.backgroundSize = '100% 100%'
+}
+ 
+</script>
+
+</body>
