@@ -16,7 +16,7 @@ let database = firebase.database()
  let scoreboard = {  }
  let fire= document.getElementById("fire")
  let level=1
- let Time=80
+ let Time=20
  let z=2
  let x=350
  let y=350
@@ -130,7 +130,7 @@ level = 9
   }
   else {
     
-    fire.innerHTML = "Name? <input id='snow'><button onclick='restart()'>Restart</button><button onclick=generate_alltime_leaderboard()</buton>"
+    fire.innerHTML = "Name? <input id='snow'><button onclick='restart()'>Restart</button><button onclick=generate_alltime_leaderboard()>All-time leaderboard</button>"
 noLoop()
 
 
