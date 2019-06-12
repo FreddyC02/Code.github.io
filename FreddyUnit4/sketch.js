@@ -40,17 +40,19 @@ function draw() {
   fill(218, 123, 247)
    circle(x*s, y, 30*s)
   
+  if (touches.length == 0)   {
   if (keyIsDown(LEFT_ARROW)) {
     x = x - 10
-  }
+    }
   if (keyIsDown(RIGHT_ARROW)) {
     x = x + 10
-  }
+    }
   if (keyIsDown(UP_ARROW)) {
     y = y - 10
-  }
+    }
   if (keyIsDown(DOWN_ARROW)) {
     y = y + 10
+    }
   }
   
   
