@@ -54,6 +54,11 @@ function draw() {
     y = y + 10
     }
   }
+  else { 
+  x = touches[0].x
+  y = touches[0].y
+}
+
   
   
 for (i=0; i<z; i=i+1) { 
