@@ -148,7 +148,7 @@ function restart() {
 		}
         alert("Scoreboard: " +
 JSON.stringify(scoreboard,null,1)) 
-		Time = 100
+		Time = 20
 		fails = 0
         z = 2
         level = 1
